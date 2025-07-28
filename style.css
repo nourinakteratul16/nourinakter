@@ -1,0 +1,734 @@
+/* == COLORS ====================================== */
+:root {
+  --white: #ffffff;
+  --offwhite: #f8f8f8;
+  --navy: #002365;        /* Navy blue */
+  --gold: #d4af37;        /* Metallic gold */
+  --skyblue: #87CEEB;     /* Sky Blue for mobile nav links */
+  --text-dark: #333333;
+}
+
+/* == GLOBAL RESET & BODY ========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background: var(--offwhite);
+  color: var(--text-dark);
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* == NAVBAR ========================================= */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.nav h1 span {
+  color: var(--gold);
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s;
+}
+.nav-links a:hover {
+  color: var(--gold);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* == WELCOME SECTION ============================= */
+.welcome {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 30px 0 60px;
+}
+#welcomeSection #photo {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+#welcomeSection img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid var(--navy);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#welcomeSection img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 35, 101, 0.3);
+}
+#welcomeSection #message {
+  flex: 2 1 400px;
+}
+.highlight {
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* == ABOUT ME SECTION ============================ */
+.section-about {
+  display: flex;
+  align-items: stretch; /* দুই ডিভ একই উচ্চতায় থাকবে */
+  gap: 30px;
+}
+
+.section-about #aboutphoto {
+  order: 2;
+  flex: 1 1 350px;
+  max-width: 400px;
+  /* পুরো ডিভ height ঠিক রাখতে */
+  height: auto;
+}
+
+.section-about #aboutphoto img {
+  width: 100%;
+  height: 100%; /* aboutText এর উচ্চতার সমান হবে */
+  object-fit: cover; /* ছবির অনুপাত ঠিক থাকবে */
+  border-radius: 10px;
+  border: none; /* বর্ডার রিমুভ */
+  transition: transform 0.3s; /* হোভার এ শুধু স্কেল বাড়বে */
+  display: block;
+}
+
+.section-about #aboutphoto img:hover {
+  transform: scale(1.03);
+  box-shadow: none; /* হোভার এ কোনো শেডো বা বর্ডার থাকবে না */
+}
+
+.section-about .aboutText {
+  order: 1;
+  flex: 2 1 600px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.section-about .aboutText h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-about .aboutText p {
+  color: var(--white);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.section-about .aboutText p span {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+
+/* == EDUCATION SECTION =========================== */
+.section-education {
+  margin-bottom: 60px;
+}
+.section-education h2 {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.education-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.edu-card {
+  background: var(--navy);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+.edu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+.edu-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: var(--offwhite);
+  padding: 10px;
+}
+.edu-info {
+  padding: 15px;
+  color: var(--white);
+}
+.edu-info p {
+  margin-bottom: 8px;
+}
+.edu-info strong {
+  color: var(--gold);
+}
+
+/* == CONTACT SECTION ============================= */
+.contact-section {
+  background: var(--navy);
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+}
+.contact-section h2 {
+  font-size: 30px;
+  color: var(--gold);
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-section h2 i {
+  color: var(--gold);
+  font-size: 32px;
+  animation: pulse 2s infinite;
+}
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-list li {
+  margin-bottom: 20px;
+}
+.contact-list a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--white);
+  color: var(--navy);
+  padding: 12px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.contact-list a i {
+  font-size: 24px;
+  color: var(--gold);
+  transition: transform 0.3s, color 0.3s;
+}
+.contact-list a:hover,
+.contact-list a:focus {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.7);
+  transform: translateY(-4px);
+  outline: none;
+}
+.contact-list a:hover i,
+.contact-list a:focus i {
+  transform: scale(1.4) rotate(15deg);
+  color: var(--white);
+}
+.contact-list a .text {
+  flex-grow: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* == ANIMATIONS =================================== */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* == RESPONSIVE =================================== */
+@media (max-width: 768px) {
+  .menu-icon { display: block; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--offwhite);
+    margin-top: 10px;
+    padding: 10px;
+  }
+  .nav-links.active { display: flex; }
+
+  /* Mobile navbar link colors */
+  .nav-links a {
+    color: var(--skyblue) !important;
+  }
+  .nav-links a::after {
+    background: var(--skyblue) !important;
+  }
+  .nav-links a:hover,
+  .nav-links a:hover::after {
+    color: var(--navy) !important;
+    background: var(--navy) !important;
+  }
+
+  .welcome, .section-about {
+    flex-direction: column;
+  }
+  .section-about #aboutphoto { order: 1; }
+  .section-about .aboutText { order: 2; }
+  .education-container { grid-template-columns: 1fr; }
+  .edu-card img { height: 120px; }
+}
+
+@media (max-width: 480px) {
+  .contact-list a {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+  .contact-list a i {
+    font-size: 20px;
+  }
+}
+
+/* == MOBILE TAP HIGHLIGHT & FOCUS RESET ========== */
+@media (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+img:focus,
+a:focus,
+button:focus {
+  outline: none;
+}
+/* Specific removal of image border */
+#welcomeSection img {
+  border: none !important; /* removes all border */
+}
+
+/* Prevent blue tap highlight & default focus outline */
+@media (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent; /* remove tap flash */ /* :contentReference[oaicite:1]{index=1} */
+  }
+}
+#welcomeSection img:focus,
+#welcomeSection img:active {
+  outline: none;       /* no focus outline */ /* :contentReference[oaicite:2]{index=2} */
+  box-shadow: none;    /* no default shadow/highlight */ /* :contentReference[oaicite:3]{index=3} */
+}
+/* == DARK MODE =================================== */
+body.dark-mode {
+  background: #000;
+  color: #fff;
+}
+
+body.dark-mode .nav-links a {
+  color: #fff;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: red;
+}
+
+body.dark-mode .aboutText,
+body.dark-mode .edu-card,
+body.dark-mode .contact-section {
+  background: #111;
+  color: #fff;
+}
+
+body.dark-mode .highlight,
+body.dark-mode .aboutText span,
+body.dark-mode .edu-info strong,
+body.dark-mode .nav h1 span {
+  color: red;
+}
+
+/* Toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--navy);
+  margin-left: 20px;
+  transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+body.dark-mode .theme-toggle {
+  color: red;
+}
+body.dark-mode .contact-list a:hover,
+body.dark-mode .contact-list a:focus {
+  background: red;
+  color: white;
+  box-shadow: 0 6px 25px rgba(255, 0, 0, 0.6);
+}
+
+body.dark-mode .contact-list a:hover i,
+body.dark-mode .contact-list a:focus i {
+  transform: scale(1.4) rotate(15deg);
+  color: white;
+}
+body.dark-mode .nav-links a:hover {
+  color: red !important;
+}
+
+body.dark-mode .nav-links a:hover::after {
+  background: red !important;
+}
+body.dark-mode .aboutText span {
+  color: red;
+}
+body.dark-mode .aboutText span {
+  color: red;
+}
+/* Navbar background and text in dark mode */
+body.dark-mode header {
+  background-color: #111; /* or #000 for full black */
+  color: white;
+}
+
+/* Navbar links color */
+body.dark-mode .nav-links a {
+  color: white;
+}
+
+/* Hover effect in dark mode (already handled red earlier) */
+body.dark-mode .nav-links a:hover {
+  color: red !important;
+}
+header,
+.nav-links a {
+  transition: background 0.3s, color 0.3s;
+}
+/* Dark mode navbar background and text */
+body.dark-mode header {
+  background-color: #000; /* Pure black */
+  color: white;
+}
+
+/* Navbar links color in dark mode */
+body.dark-mode .nav-links a {
+  color: white;
+}
+
+/* Red hover effect in dark mode */
+body.dark-mode .nav-links a:hover {
+  color: red;
+}
+
+/* ==== CV SECTION ===================================== */
+#cv {
+  padding: 60px 20px;
+  background-color: var(--offwhite);
+  color: var(--navy);
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#cv h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.cv-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.cv-image {
+  max-width: 250px;
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 4px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.cv-button {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff; /* Light mode: blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cv-button:hover {
+  background-color: #0056b3;
+}
+
+/* ==== DARK MODE STYLES ================================ */
+body.dark-mode #cv {
+  background-color: #111;
+  color: white;
+}
+
+body.dark-mode .cv-button {
+  background-color: #e50914; /* Dark mode: red */
+  color: white;
+}
+
+body.dark-mode .cv-button:hover {
+  background-color: #b20710;
+}
+
+/* ==== DARK MODE: ALL HOVER = RED ====================== */
+body.dark-mode a:hover,
+body.dark-mode button:hover,
+body.dark-mode .nav-links a:hover,
+body.dark-mode .cv-button:hover {
+  color: red !important;
+}
+
+/* ==== RESPONSIVE ====================================== */
+@media (min-width: 768px) {
+  .cv-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .cv-image {
+    margin-right: 40px;
+  }
+}
+.cv-button {
+  position: relative;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff; /* Light mode: blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cv-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: left 0.4s ease;
+  z-index: 1;
+}
+
+.cv-button:hover::before {
+  left: 100%;
+}
+
+.cv-button:hover {
+  background-color: #0056b3;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .cv-button {
+  background-color: #e50914;
+  color: white;
+}
+
+body.dark-mode .cv-button:hover {
+  background-color: #b20710;
+}
+/:root {
+  --navy: #0a192f;
+  --gold: #d4af37;
+  --white: #ffffff;
+  --offwhite: #f0f0f0;
+  --red-hover: #d63636;
+}
+
+/* == SKILLS SECTION ============================ */
+.skills-section {
+  margin-bottom: 80px;
+  padding: 0 20px;
+}
+
+.skills-section h2 {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+/* Individual Skill Card */
+.skill-card {
+  background: var(--navy); /* Light mode background */
+  border-radius: 12px;
+  padding: 20px;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(255, 99, 99, 0.5); /* হালকা লাল ছায়া */
+  color: #ff6666; /* হালকা লাল টেক্সট হোভার করলে */
+}
+
+body.dark-mode .skill-card:hover {
+  box-shadow: 0 8px 20px rgba(255, 99, 99, 0.7);
+  color: #ff9999; /* ডার্ক মোডে হালকা লাল টেক্সট */
+}z
+.skill-card h3,
+.skill-card h4 {
+  color: var(--gold);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.skill-card p,
+.skill-card ul,
+.skill-card li {
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.skill-card ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.skill-card li::marker {
+  color: var(--gold);
+}
+
+.skill-image,
+.project-image {
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin: 10px 0;
+  border-radius: 8px;
+  background: var(--offwhite);
+  padding: 10px;
+}
+
+/* Responsive Video */
+.responsive-video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+  background: var(--offwhite);
+  padding: 5px;
+}
+
+/* Download Button */
+.btn-download {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: var(--gold);
+  color: var(--black);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+  background-color: #e44;
+  color: #fff;
+}
+
+/* ==== DARK MODE ===== */
+body.dark-mode .skill-card {
+  background: #000;  /* dark mode background black */
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .skill-card p,
+body.dark-mode .skill-card ul,
+body.dark-mode .skill-card li {
+  color: #fff;
+}
+
+body.dark-mode .skill-image,
+body.dark-mode .project-image {
+  background: #1a1a1a;
+}
+
+body.dark-mode .responsive-video {
+  background: #1a1a1a;
+}
